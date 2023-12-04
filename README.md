@@ -20,10 +20,15 @@
   FROM `students`
   WHERE `date_of_birth` < DATE_SUB(CURDATE(), INTERVAL 30 YEAR);
   ```
-  ```
+  ```MYSQL
   SELECT * 
   FROM `students`
   WHERE (DATEDIFF(CURDATE(), `date_of_birth`) / 365) > 30;
+  ```
+  ```MYSQL
+  SELECT * 
+  FROM `students`
+  WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
   ```
 
 4) Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286):
