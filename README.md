@@ -44,6 +44,6 @@
 
 7) Da quanti dipartimenti è composta l'univesità ? (12):
   ```
-  SELECT COUNT(`id`) as 'N. Dipartimenti'
+  SELECT COUNT(`id`) AS 'n_departments'
   FROM `departments`;
   ```
