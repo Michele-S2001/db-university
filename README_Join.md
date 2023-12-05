@@ -40,6 +40,12 @@ nome
 
 5) Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
   ```MYSQL
+  SELECT `degrees`.*, `courses`.`name` AS 'nome_corso', CONCAT(`teachers`.`name`, ' ', `teachers`.`surname`) AS 'nome_insegnante' 
+  FROM `degrees`
+  INNER JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id`
+  INNER JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+  INNER JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+  ORDER BY `degrees`.`id` ASC;
   ```
 
 6)  Selezionare tutti i docenti che insegnano nel Dipartimento di
