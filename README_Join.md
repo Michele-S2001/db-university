@@ -20,6 +20,11 @@ Neuroscienze
 
 3) Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
   ```MYSQL
+  SELECT `teachers`.*, `courses`.`name` AS 'nome_corso'
+  FROM `teachers`
+  INNER JOIN `course_teacher` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+  INNER JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id`
+  WHERE `teachers`.`name` = 'Fulvio' AND `teachers`.`surname` = 'Amato';
   ```
 
 4) Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui
