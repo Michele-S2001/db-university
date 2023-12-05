@@ -31,6 +31,11 @@ Neuroscienze
 sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e
 nome
   ```MYSQL
+  SELECT `students`.*, `degrees`.`name` AS 'corso_di_laurea', `departments`.`name` AS 'dipartimento' 
+  FROM `students`
+  INNER JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id`
+  INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+  ORDER BY `students`.`surname`, `students`.`name` ASC;
   ```
 
 5) Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
