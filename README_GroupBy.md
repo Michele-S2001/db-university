@@ -23,4 +23,7 @@
 
 4) Contare quanti corsi di laurea ci sono per ogni dipartimento
   ```MYSQL
+  SELECT COUNT(*) AS 'corsi_di_laurea', `department_id`
+  FROM `degrees`
+  GROUP BY `department_id`;
   ```
