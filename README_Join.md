@@ -65,4 +65,12 @@ Matematica (54)
 per ogni esame, stampando anche il voto massimo. Successivamente,
 filtrare i tentativi con voto minimo 18.
   ```MYSQL
+  SELECT `students`.`id`, `courses`.`id` AS 'corso_id' , `students`.`name`, `students`.`surname`, `courses`.`name` AS 'nome_corso', COUNT(*) AS 'numero_tentativi', MAX(`vote`) AS `voto_massimo`
+  FROM `students`
+  INNER JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+  INNER JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
+  INNER JOIN `courses` ON `courses`.`id` = `exams`.`course_id`  
+  GROUP BY `students`.`id`, `courses`.`id`
+  HAVING `voto_massimo` >= 18
+  ORDER BY `students`.`id` ASC;
   ```
